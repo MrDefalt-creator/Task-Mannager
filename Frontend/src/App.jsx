@@ -1,12 +1,13 @@
-
-
 import './App.css'
+import LoginPage from "./pages/LoginPage.jsx";
 
 function App() {
 
 
   return (
-    <div className=''></div>
+    <main className='w-screen h-screen bg-white'>
+      <LoginPage/>
+    </main>
   )
 }
 

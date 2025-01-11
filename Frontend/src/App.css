@@ -1,3 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.input-auth {
+    @apply border-[1px] min-w-[180px] px-5 py-2 rounded-md border-slate-500 focus:outline-none focus:border-transparent focus:ring-1 focus:ring-violet-700 ;
+}
