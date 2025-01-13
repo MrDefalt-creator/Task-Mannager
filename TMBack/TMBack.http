@@ -1,0 +1,6 @@
+@TMBack_HostAddress = http://localhost:5115
+
+GET {{TMBack_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
