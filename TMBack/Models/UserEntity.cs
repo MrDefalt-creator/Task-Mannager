@@ -10,8 +10,8 @@
 
         public required string PasswordHash { get; set; }
 
-        public List<TaskEntity> Tasks { get; set; } = new List<TaskEntity>();
+        public List<TaskEntity> Tasks { get; set; } = [];
 
-        public List<RefreshTokenEntity> RefreshTokens { get; set; } = new List<RefreshTokenEntity>();
+        public List<RefreshTokenEntity> RefreshTokens { get; set; } = [];
     }
 }

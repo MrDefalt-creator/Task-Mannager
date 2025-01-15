@@ -11,13 +11,9 @@ namespace TMBack.Configurations
             builder.HasKey(u => u.Id);
 
             builder.
-                 HasMany(u => u.Tasks)
-                .WithOne(t => t.User);
-
-            builder
-                .HasMany(u => u.RefreshTokens)
-                .WithOne(r => r.User);
-
+                HasMany(u => u.Tasks)
+                .WithOne(t => t.User)
+                .HasForeignKey(t => t.UserId);
         }
     }
 }

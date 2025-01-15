@@ -17,6 +17,6 @@ namespace TMBack.Models
 
         public Guid UserId { get; set; }
 
-        public required UserEntity User { get; set; }
+        public UserEntity? User { get; set; }
     }
 }
