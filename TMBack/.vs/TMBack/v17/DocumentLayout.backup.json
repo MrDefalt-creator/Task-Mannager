@@ -1,32 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Projects\\Task-Mannager\\TMBack\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|e:\\projects\\task-mannager\\tmback\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|e:\\projects\\task-mannager\\tmback\\models\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:models\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|e:\\projects\\task-mannager\\tmback\\models\\taskentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:models\\taskentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|e:\\projects\\task-mannager\\tmback\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|e:\\projects\\task-mannager\\tmback\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|e:\\projects\\task-mannager\\tmback\\taskmanagerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:taskmanagerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Projects\\Task-Mannager\\TMBack\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -34,85 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\Projects\\Task-Mannager\\TMBack\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "E:\\Projects\\Task-Mannager\\TMBack\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-12T13:54:55.901Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TaskEntity.cs",
-              "DocumentMoniker": "E:\\Projects\\Task-Mannager\\TMBack\\Models\\TaskEntity.cs",
-              "RelativeDocumentMoniker": "Models\\TaskEntity.cs",
-              "ToolTip": "E:\\Projects\\Task-Mannager\\TMBack\\Models\\TaskEntity.cs",
-              "RelativeToolTip": "Models\\TaskEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T13:48:09.453Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserEntity.cs",
-              "DocumentMoniker": "E:\\Projects\\Task-Mannager\\TMBack\\Models\\UserEntity.cs",
-              "RelativeDocumentMoniker": "Models\\UserEntity.cs",
-              "ToolTip": "E:\\Projects\\Task-Mannager\\TMBack\\Models\\UserEntity.cs",
-              "RelativeToolTip": "Models\\UserEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T13:44:43.399Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserConfiguration.cs",
-              "DocumentMoniker": "E:\\Projects\\Task-Mannager\\TMBack\\Configurations\\UserConfiguration.cs",
-              "RelativeDocumentMoniker": "Configurations\\UserConfiguration.cs",
-              "ToolTip": "E:\\Projects\\Task-Mannager\\TMBack\\Configurations\\UserConfiguration.cs",
-              "RelativeToolTip": "Configurations\\UserConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T13:41:04.184Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TaskManagerDbContext.cs",
-              "DocumentMoniker": "E:\\Projects\\Task-Mannager\\TMBack\\TaskManagerDbContext.cs",
-              "RelativeDocumentMoniker": "TaskManagerDbContext.cs",
-              "ToolTip": "E:\\Projects\\Task-Mannager\\TMBack\\TaskManagerDbContext.cs",
-              "RelativeToolTip": "TaskManagerDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T13:32:04.909Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\Projects\\Task-Mannager\\TMBack\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "E:\\Projects\\Task-Mannager\\TMBack\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T12:42:43.146Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             }
           ]
         }
