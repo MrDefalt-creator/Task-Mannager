@@ -122,7 +122,6 @@ E:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\staticwebassets\msbuild.build.
 E:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.TMBack.props
 E:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.TMBack.props
 E:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\staticwebassets.pack.json
-E:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 E:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\TMBack.csproj.Up2Date
 E:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\TMBack.dll
 E:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\refint\TMBack.dll
@@ -259,3 +258,13 @@ C:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\refint\TMBack.dll
 C:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\TMBack.pdb
 C:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\TMBack.genruntimeconfig.cache
 C:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\ref\TMBack.dll
+E:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+E:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+E:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+E:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+E:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+E:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+E:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\System.Text.Json.dll

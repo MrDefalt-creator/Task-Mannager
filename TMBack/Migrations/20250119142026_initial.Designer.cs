@@ -12,8 +12,8 @@ using TMBack;
 namespace TMBack.Migrations
 {
     [DbContext(typeof(TaskManagerDbContext))]
-    [Migration("20250117131004_Initial")]
-    partial class Initial
+    [Migration("20250119142026_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
