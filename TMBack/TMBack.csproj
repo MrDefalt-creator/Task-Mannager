@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Enpoints\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
 
