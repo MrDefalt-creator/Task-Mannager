@@ -10,10 +10,10 @@ namespace TMBack
             : base(options)
         {
         }
-        public DbSet<UserEntity> Users { get; set; }
+        public DbSet<UserEntity> User { get; set; }
         
-        public DbSet<TaskEntity> Tasks { get; set; }
+        public DbSet<TaskEntity> Task { get; set; }
         
-        public DbSet<RefreshTokenEntity> RefreshTokens { get; set; }
+        public DbSet<RefreshTokenEntity> RefreshToken { get; set; }
     }
 }

@@ -1,19 +1,41 @@
-﻿using System.Diagnostics.Contracts;
-
-namespace TMBack.Contracts.User;
-
-public class RegisterUserRequest
+﻿public class RegisterUserRequest
 {
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public string Email { get; set; }
+    private string _username;
+    private string _password;
+    private string _email;
 
-    [ContractInvariantMethod]
-    private void ObjectInvariant()
+    public string Username
     {
-        Contract.Invariant(!string.IsNullOrEmpty(Username), "Имя пользователя не должно быть пустым.");
-        Contract.Invariant(!string.IsNullOrEmpty(Password), "Пароль не может быть пустым.");
-        Contract.Invariant(!string.IsNullOrEmpty(Email), "Электронная почта не может быть пустой.");
-        Contract.Invariant(Email.Contains("@"), "Электронная почта должна содержать символ '@'.");
-    }   
+        get => _username;
+        set
+        {
+            if (string.IsNullOrEmpty(value))
+                throw new ArgumentException("Имя пользователя не должно быть пустым.");
+            _username = value;
+        }
+    }
+
+    public string Password
+    {
+        get => _password;
+        set
+        {
+            if (string.IsNullOrEmpty(value))
+                throw new ArgumentException("Пароль не может быть пустым.");
+            _password = value;
+        }
+    }
+
+    public string Email
+    {
+        get => _email;
+        set
+        {
+            if (string.IsNullOrEmpty(value))
+                throw new ArgumentException("Электронная почта не может быть пустой.");
+            if (!value.Contains("@"))
+                throw new ArgumentException("Электронная почта должна содержать символ '@'.");
+            _email = value;
+        }
+    }
 }

@@ -1,5 +1,4 @@
-﻿using TMBack.Contracts.User;
-using TMBack.Services;
+﻿using TMBack.Services;
 
 namespace TMBack.Endpoints;
 
