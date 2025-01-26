@@ -12,7 +12,7 @@ using TMBack;
 namespace TMBack.Migrations
 {
     [DbContext(typeof(TaskManagerDbContext))]
-    [Migration("20250119142026_initial")]
+    [Migration("20250126165038_initial")]
     partial class initial
     {
         /// <inheritdoc />

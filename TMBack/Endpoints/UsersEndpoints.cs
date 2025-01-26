@@ -1,4 +1,5 @@
-﻿using TMBack.Services;
+﻿using TMBack.Contracts.User;
+using TMBack.Services;
 
 namespace TMBack.Endpoints;
 
@@ -8,13 +9,26 @@ public static class UsersEndpoints
     {
         app.MapPost("register", Register);
         
+        app.MapPost("login", Login);
+        
         return app;
     }
 
     private static async Task<IResult> Register(RegisterUserRequest request,UsersService usersService)
     {
-        await usersService.Register(request.Username, request.Email, request.Password);
+        await usersService.Register(request.UserName, request.Email, request.Password);
         
         return Results.Ok(usersService);
+    }
+
+    private static async Task<IResult> Login(LoginUserRequest request,UsersService usersService)
+    {
+        var token = await usersService.Login(request.Email, request.Password);
+        // проверить email и пароль 
+
+        // создать токен
+
+        //сохранить токен в куки
+        return Results.Ok();
     }
 }
