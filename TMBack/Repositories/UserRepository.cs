@@ -1,12 +1,14 @@
 ﻿using TMBack.Models;
 using Microsoft.EntityFrameworkCore;
+using TMBack.Interfaces.Repositories;
+
 namespace TMBack.Repositories;
 
-public class IUserRepository
+public class UserRepository : IUserRepository
 {
     private readonly TaskManagerDbContext _dbContext;
 
-    public IUserRepository(TaskManagerDbContext dbContext)
+    public UserRepository(TaskManagerDbContext dbContext)
     {
         _dbContext = dbContext;
     }

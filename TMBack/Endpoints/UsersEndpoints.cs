@@ -24,11 +24,7 @@ public static class UsersEndpoints
     private static async Task<IResult> Login(LoginUserRequest request,UsersService usersService)
     {
         var token = await usersService.Login(request.Email, request.Password);
-        // проверить email и пароль 
 
-        // создать токен
-
-        //сохранить токен в куки
-        return Results.Ok();
+        return Results.Ok(token);
     }
 }

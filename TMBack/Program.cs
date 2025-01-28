@@ -3,6 +3,12 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using TMBack.Infrastructure;
+using TMBack.Interfaces.Auth;
+using TMBack.Interfaces.Repositories;
+using TMBack.Providers;
+using TMBack.Repositories;
+using TMBack.Services;
 
 namespace TMBack
 {
@@ -13,6 +19,7 @@ namespace TMBack
             var builder = WebApplication.CreateBuilder(args);
             var configuration = builder.Configuration;  
             var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]);
+            var services = builder.Services;
 
             // Add services to the container.
             builder.Services.AddControllers();
@@ -73,6 +80,13 @@ namespace TMBack
                 options.UseNpgsql(configuration.GetConnectionString(nameof(TaskManagerDbContext)));
             });
 
+            services.AddScoped<IJwtProvider, JwtProvider>();
+            services.AddScoped<IPasswordHasher, PasswordHasher>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            
+            services.AddScoped<UsersService>();
+
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

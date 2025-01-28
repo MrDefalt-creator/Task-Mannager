@@ -1,4 +1,5 @@
 ﻿using TMBack.Interfaces.Auth;
+using TMBack.Interfaces.Repositories;
 using TMBack.Models;
 using TMBack.Repositories;
 
@@ -10,15 +11,15 @@ public class UsersService
 
     private readonly TaskManagerDbContext _dbContext;
     
-    private readonly IUserRepository _usersRepository;
-    
     private readonly IJwtProvider _jwtProvider;
-    public UsersService(IJwtProvider jwtProvider,IUserRepository usersRepository,TaskManagerDbContext dbContext,IPasswordHasher passwordHasher)
+    
+    private readonly IUserRepository _userRepository;
+    public UsersService(IUserRepository userRepository,IJwtProvider jwtProvider,TaskManagerDbContext dbContext,IPasswordHasher passwordHasher)
     {
         _passwordHasher = passwordHasher;
         _dbContext = dbContext;
-        _usersRepository = usersRepository;
         _jwtProvider = jwtProvider;
+        _userRepository = userRepository;
     }
     
     public async Task Register(string userName, string email, string password)
@@ -43,7 +44,7 @@ public class UsersService
 
     public async Task<string> Login(string email, string password)
     {
-        var user = _usersRepository.GetByEmail(email);
+        var user = _userRepository.GetByEmail(email);
 
         var result = _passwordHasher.Verify(password, user.Result.PasswordHash);
 
@@ -54,6 +55,6 @@ public class UsersService
 
         var token = _jwtProvider.GenerateToken(user.Result);
         
-        return "";
+        return token;
     }
 }
