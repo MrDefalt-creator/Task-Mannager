@@ -270,3 +270,4 @@ E:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.Primitive
 E:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\System.Text.Json.dll
 C:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\BCrypt.Net-Next.dll
 E:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\BCrypt.Net-Next.dll
+C:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

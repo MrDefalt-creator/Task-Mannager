@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 namespace TMBack.Repositories;
 
-public class UserRepository
+public class IUserRepository
 {
     private readonly TaskManagerDbContext _dbContext;
 
-    public UserRepository(TaskManagerDbContext dbContext)
+    public IUserRepository(TaskManagerDbContext dbContext)
     {
         _dbContext = dbContext;
     }
@@ -15,6 +15,6 @@ public class UserRepository
     {
         return await _dbContext.Users
             .AsNoTracking()
-            .FirstOrDefaultAsync(u => u.Email == email);
+            .FirstOrDefaultAsync(u => u.Email == email) ?? throw new Exception("User not found");
     }
 }
