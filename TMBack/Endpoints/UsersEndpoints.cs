@@ -1,30 +1,43 @@
 ﻿using TMBack.Contracts.User;
 using TMBack.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TMBack.Endpoints;
 
-public static class UsersEndpoints
+[ApiController]
+[Route("api/[controller]")]
+public class UsersController : ControllerBase
 {
-    public static IEndpointRouteBuilder MapUsersEndpoints(this IEndpointRouteBuilder app)
+    private readonly UsersService _usersService;
+
+    public UsersController(UsersService usersService)
     {
-        app.MapPost("register", Register);
-        
-        app.MapPost("login", Login);
-        
-        return app;
+        _usersService = usersService;
     }
 
-    private static async Task<IResult> Register(RegisterUserRequest request,UsersService usersService)
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] RegisterUserRequest request)
     {
-        await usersService.Register(request.UserName, request.Email, request.Password);
-        
-        return Results.Ok(usersService);
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        await _usersService.Register(request.UserName, request.Email, request.Password);
+
+        return Ok();
     }
 
-    private static async Task<IResult> Login(LoginUserRequest request,UsersService usersService)
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginUserRequest request)
     {
-        var token = await usersService.Login(request.Email, request.Password);
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
 
-        return Results.Ok(token);
+        var token = await _usersService.Login(request.Email, request.Password);
+
+        return Ok(token);
     }
 }
