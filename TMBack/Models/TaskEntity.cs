@@ -13,7 +13,7 @@ namespace TMBack.Models
 
         public DateTime CreatedAt { get; set; }
         
-        public DateTime MustFinish { get; set; }
+        public DateOnly MustFinish { get; set; }
 
         public Guid UserId { get; set; }
 

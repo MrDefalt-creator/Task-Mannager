@@ -54,8 +54,8 @@ namespace TMBack.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("MustFinish")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("MustFinish")
+                        .HasColumnType("date");
 
                     b.Property<string>("Title")
                         .IsRequired()

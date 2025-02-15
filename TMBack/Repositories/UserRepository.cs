@@ -19,4 +19,11 @@ public class UserRepository : IUserRepository
             .AsNoTracking()
             .FirstOrDefaultAsync(u => u.Email == email) ?? throw new Exception("User not found");
     }
+
+    public async Task<UserEntity> GetById(Guid id)
+    {
+        return await _dbContext.Users
+            .AsNoTracking()
+            .FirstOrDefaultAsync(u => u.Id == id) ?? throw new Exception("User not found");
+    }
 }

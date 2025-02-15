@@ -2,6 +2,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using TMBack.Endpoints;
@@ -25,8 +26,9 @@ namespace TMBack
 
             // Add services to the container.
             builder.Services.AddControllers();
-            
-            
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddApiAuthentication(builder.Services.BuildServiceProvider().GetRequiredService<IOptions<JwtOptions>>());
+
             // Настройка базы данных
             builder.Services.AddDbContext<TaskManagerDbContext>(options =>
             {
@@ -39,9 +41,10 @@ namespace TMBack
             services.AddScoped<IJwtProvider, JwtProvider>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();
             services.AddScoped<IUserRepository, UserRepository>();
-            
+            services.AddScoped<ITaskRepository, TaskRepository>();
+            services.AddScoped<IUserFromClaims, UserFromClaims>();
             services.AddScoped<UsersService>();
-
+            builder.Services.AddScoped<TaskService>();
             
             
             var app = builder.Build();

@@ -1,6 +1,96 @@
-﻿namespace TMBack.Services;
+﻿using Microsoft.Extensions.Configuration.UserSecrets;
+using TMBack.Interfaces.Auth;
+using TMBack.Interfaces.Repositories;
+using TMBack.Models;
 
-public class TaskSevice
+namespace TMBack.Services;
+
+public class TaskService
 {
-    
+    private readonly TaskManagerDbContext _dbContext;
+    private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly IUserRepository _userRepository;
+    private readonly ITaskRepository _taskRepository;
+    private readonly IUserFromClaims _userFromClaims;
+    public TaskService(IUserFromClaims userFromClaims,TaskManagerDbContext dbContext, IHttpContextAccessor httpContextAccessor, IUserRepository userRepository, ITaskRepository taskRepository)
+    {
+        _dbContext = dbContext;
+        _httpContextAccessor = httpContextAccessor;
+        _userRepository = userRepository;
+        _taskRepository = taskRepository;
+        _userFromClaims = userFromClaims;
+
+    }
+
+    public async Task CreateTask(string title, string? description, DateOnly mustFinishDate)
+    {
+        Guid userId = _userFromClaims.GetUserFromClaims();
+        
+        var user = await _userRepository.GetById(userId);
+        var task = new TaskEntity
+        {
+            Title = title,
+            Description = description,
+            CreatedAt = DateTime.UtcNow,
+            MustFinish = mustFinishDate,
+            UserId = userId,
+            User = user
+        };
+
+            _dbContext.Users.Attach(user);
+            _dbContext.Tasks.Add(task);
+            await _dbContext.SaveChangesAsync();
+
+    }
+
+    public async Task<List<TaskEntity>> GetTasks()
+    {
+        Guid userId = _userFromClaims.GetUserFromClaims();
+       
+        var tasks = await _taskRepository.GetTasks(userId) ?? throw new Exception("У вас нет задач");
+
+        return tasks;
+        
+    }
+
+    public async Task<TaskEntity> GetTaskById(string taskId)
+    {
+        Guid userId = _userFromClaims.GetUserFromClaims();
+        
+        var task = await _taskRepository.GetTaskById(Guid.Parse(taskId), userId) ?? throw new Exception("Такой задачи не сущетсвует");
+
+        return task;
+    }
+
+    public async Task UpdateTask(Guid taskId, string? newTitle, string? newDescription, DateOnly? newMustFinishDate)
+    {
+        Guid userId = _userFromClaims.GetUserFromClaims();
+
+        var task = await _taskRepository.GetTaskById(taskId, userId);
+
+        if (task == null)
+        {
+            throw new Exception("Задача не найдена или у вас нет прав на её изменение");
+        }
+
+        
+        if (!string.IsNullOrEmpty(newTitle))
+            task.Title = newTitle;
+
+        if (!string.IsNullOrEmpty(newDescription))
+            task.Description = newDescription;
+
+        if (newMustFinishDate.HasValue)
+            task.MustFinish = newMustFinishDate.Value;
+
+        
+        _dbContext.Tasks.Update(task);
+        await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task DeleteTask()
+    {
+
+    }
+
 }

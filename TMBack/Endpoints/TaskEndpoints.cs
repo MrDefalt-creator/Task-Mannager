@@ -43,12 +43,13 @@ public static class TaskEndpoints
         return Results.Ok();
     }
 
-    private static async Task<IResult> UpdateTask(Guid id)
+    private static async Task<IResult> UpdateTask([FromRoute]Guid id, [FromBody]UpdateTaskRequest request, TaskService service)
     {
+        await service.UpdateTask(id, request.Title, request.Description, request.MustFinishAt);
         return Results.Ok();
     }
 
-    private static async Task<IResult> DeleteTask(Guid id)
+    private static async Task<IResult> DeleteTask(Guid? id)
     {
         return Results.Ok();
     }

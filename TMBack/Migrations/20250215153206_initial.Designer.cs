@@ -12,7 +12,7 @@ using TMBack;
 namespace TMBack.Migrations
 {
     [DbContext(typeof(TaskManagerDbContext))]
-    [Migration("20250126165038_initial")]
+    [Migration("20250215153206_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -57,8 +57,8 @@ namespace TMBack.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("MustFinish")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("MustFinish")
+                        .HasColumnType("date");
 
                     b.Property<string>("Title")
                         .IsRequired()
