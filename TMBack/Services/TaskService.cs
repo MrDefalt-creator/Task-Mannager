@@ -53,11 +53,11 @@ public class TaskService
         
     }
 
-    public async Task<TaskEntity> GetTaskById(string taskId)
+    public async Task<TaskEntity> GetTaskById(Guid taskId)
     {
         Guid userId = _userFromClaims.GetUserFromClaims();
         
-        var task = await _taskRepository.GetTaskById(Guid.Parse(taskId), userId) ?? throw new Exception("Такой задачи не сущетсвует");
+        var task = await _taskRepository.GetTaskById(taskId, userId) ?? throw new Exception("Такой задачи не сущетсвует");
 
         return task;
     }
@@ -88,9 +88,19 @@ public class TaskService
         await _dbContext.SaveChangesAsync();
     }
 
-    public async Task DeleteTask()
+    public async Task DeleteTask(Guid taskId)
     {
-
+        Guid userId = _userFromClaims.GetUserFromClaims();
+        
+        var task = await _taskRepository.GetTaskById(taskId, userId);
+        if (task == null)
+        {
+            throw new Exception("Задача не найдена или у вас нет прав на её изменение");
+        }
+        
+        _dbContext.Tasks.Remove(task);
+        await _dbContext.SaveChangesAsync();
+        
     }
 
 }

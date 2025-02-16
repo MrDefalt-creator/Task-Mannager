@@ -32,7 +32,7 @@ public static class TaskEndpoints
         return Results.Ok(tasks);
     }
 
-    private static async Task<IResult> GetTaskById([FromRoute]string id, TaskService service)
+    private static async Task<IResult> GetTaskById([FromRoute]Guid id, TaskService service)
     {
         var task = await service.GetTaskById(id);
         return Results.Ok(task);
@@ -49,8 +49,9 @@ public static class TaskEndpoints
         return Results.Ok();
     }
 
-    private static async Task<IResult> DeleteTask(Guid? id)
+    private static async Task<IResult> DeleteTask([FromRoute]Guid id, TaskService service)
     {
+        await service.DeleteTask(id);
         return Results.Ok();
     }
 
