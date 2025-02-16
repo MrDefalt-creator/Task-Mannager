@@ -10,6 +10,7 @@ using TMBack.Extensions;
 using TMBack.Infrastructure;
 using TMBack.Interfaces.Auth;
 using TMBack.Interfaces.Repositories;
+using TMBack.Middleware;
 using TMBack.Providers;
 using TMBack.Repositories;
 using TMBack.Services;
@@ -59,7 +60,9 @@ namespace TMBack
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Task Manager API v1");
                 });
             }
-
+            
+            
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseHttpsRedirection();
             app.UseCookiePolicy(new CookiePolicyOptions
             {

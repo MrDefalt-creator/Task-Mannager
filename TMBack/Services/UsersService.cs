@@ -1,4 +1,5 @@
-﻿using TMBack.Interfaces.Auth;
+﻿using System.Diagnostics;
+using TMBack.Interfaces.Auth;
 using TMBack.Interfaces.Repositories;
 using TMBack.Models;
 using TMBack.Repositories;
@@ -50,14 +51,14 @@ public class UsersService
         var user = _userRepository.GetByEmail(email);
         if (user == null)
         {
-            throw new Exception($"Пользователя с этим email {email} не сушествует");
+            throw new UnauthorizedAccessException($"Пользователя с этим email {email} не сушествует");
         }
         
         var result = _passwordHasher.Verify(password, user.Result.PasswordHash);
 
         if (result == false)
         {
-            throw new Exception("Неправильный пароль");
+            throw new UnauthorizedAccessException("Неправильный пароль");
         }
         var cookieOptions = new CookieOptions
         {
