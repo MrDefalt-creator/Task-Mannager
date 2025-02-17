@@ -45,7 +45,7 @@ namespace TMBack
             services.AddScoped<ITaskRepository, TaskRepository>();
             services.AddScoped<IUserFromClaims, UserFromClaims>();
             services.AddScoped<UsersService>();
-            builder.Services.AddScoped<TaskService>();
+            services.AddScoped<TaskService>();
             
             
             var app = builder.Build();
