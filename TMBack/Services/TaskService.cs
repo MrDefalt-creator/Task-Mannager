@@ -46,8 +46,12 @@ public class TaskService
     public async Task<List<TaskEntity>> GetTasks()
     {
         Guid userId = _userFromClaims.GetUserFromClaims();
-       
-        var tasks = await _taskRepository.GetTasks(userId) ?? throw new Exception("У вас нет задач");
+
+        var tasks = await _taskRepository.GetTasks(userId);
+        if (tasks == null)
+        {
+            throw new KeyNotFoundException("У вас нет задач");
+        }
 
         return tasks;
         
@@ -56,8 +60,12 @@ public class TaskService
     public async Task<TaskEntity> GetTaskById(Guid taskId)
     {
         Guid userId = _userFromClaims.GetUserFromClaims();
-        
-        var task = await _taskRepository.GetTaskById(taskId, userId) ?? throw new Exception("Такой задачи не сущетсвует");
+
+        var task = await _taskRepository.GetTaskById(taskId, userId);
+        if (task == null)
+        {
+            throw new KeyNotFoundException("Такой задачи не существует");
+        }
 
         return task;
     }
@@ -70,7 +78,7 @@ public class TaskService
 
         if (task == null)
         {
-            throw new Exception("Задача не найдена или у вас нет прав на её изменение");
+            throw new KeyNotFoundException("Задача не найдена или у вас нет прав на её изменение");
         }
 
         
@@ -95,7 +103,7 @@ public class TaskService
         var task = await _taskRepository.GetTaskById(taskId, userId);
         if (task == null)
         {
-            throw new Exception("Задача не найдена или у вас нет прав на её изменение");
+            throw new KeyNotFoundException("Задача не найдена или у вас нет прав на её изменение");
         }
         
         _dbContext.Tasks.Remove(task);
