@@ -8,7 +8,7 @@ export default function LoginPage() {
                 <input placeholder="Пароль" type="password" className="input-auth"/>
                 <div className='flex place-content-around'>
                     <input type='checkbox' className='w-4' style={{accentColor: "#7e22ce"}}/>
-                    <p className='font-sans text-center'>Запомнить меня</p>
+                    <p className='font-sans text-center text-sm'>Запомнить меня на 30 дней</p>
                 </div>
                 <button className='w-full rounded-md bg-violet-600 hover:bg-violet-700 text-white font-sans py-1.5'>Войти</button>
             </AuthContainer>
