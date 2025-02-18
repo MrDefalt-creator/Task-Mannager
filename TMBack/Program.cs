@@ -63,7 +63,11 @@ namespace TMBack
             
             
             app.UseMiddleware<ExceptionMiddleware>();
-            app.UseCors(cors => cors.AllowCredentials().AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            app.UseCors(policy => policy
+                .WithOrigins("http://localhost:5173")
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials());
             app.UseHttpsRedirection();
             app.UseCookiePolicy(new CookiePolicyOptions
             {
