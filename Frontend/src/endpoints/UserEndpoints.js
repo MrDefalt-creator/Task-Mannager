@@ -1,4 +1,4 @@
-﻿import $api from './api';
+﻿import $api from '../http/index.jsx';
 
 export default class UserEndpoints {
 
