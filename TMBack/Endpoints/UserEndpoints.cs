@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using TMBack.Contracts.User;
 using TMBack.Services;
 
@@ -11,6 +12,8 @@ public static class UsersEndpoints
         app.MapPost("register", Register);
         
         app.MapPost("login", Login);
+        
+        app.MapGet("check_validation", Check_Validation).RequireAuthorization();
         
         return app;
     }
@@ -26,9 +29,13 @@ public static class UsersEndpoints
     {
         var outputLoginRequest = await usersService.Login(request.Email, request.Password, request.RememberMe);
         
-        /* Название JWT является не безопасным и используются для теста!!! */
-        
-        
         return Results.Ok(outputLoginRequest);
     }
+
+    private static async Task<IResult> Check_Validation()
+    {
+        return Results.Ok(new {message = "Validation Passed"});
+    }
+    
+    
 }
