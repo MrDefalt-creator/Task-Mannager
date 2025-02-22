@@ -24,11 +24,11 @@ public static class UsersEndpoints
 
     private static async Task<IResult> Login([FromBody]LoginUserRequest request, UsersService usersService, HttpContext context)
     {
-        var token = await usersService.Login(request.Email, request.Password, request.RememberMe);
+        var outputLoginRequest = await usersService.Login(request.Email, request.Password, request.RememberMe);
         
         /* Название JWT является не безопасным и используются для теста!!! */
         
         
-        return Results.Ok();
+        return Results.Ok(outputLoginRequest);
     }
 }

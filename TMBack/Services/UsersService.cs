@@ -2,6 +2,7 @@
 using TMBack.Interfaces.Auth;
 using TMBack.Interfaces.Repositories;
 using TMBack.Models;
+using TMBack.Contracts.User;
 using TMBack.Repositories;
 
 namespace TMBack.Services;
@@ -46,7 +47,7 @@ public class UsersService
         await _dbContext.SaveChangesAsync();
     }
 
-    public async Task<string> Login(string email, string password, bool rememberMe)
+    public async Task<OutputLoginRequest> Login(string email, string password, bool rememberMe)
     {
         var user = _userRepository.GetByEmail(email);
         if (user == null)
@@ -68,8 +69,10 @@ public class UsersService
             Expires = rememberMe ? DateTime.UtcNow.AddDays(30) : null 
         };
 
+        var outputRequest = new OutputLoginRequest(user.Result.Id, user.Result.UserName, user.Result.Email);
+
         var token = _jwtProvider.GenerateToken(user.Result);
         _httpContextAccessor.HttpContext?.Response.Cookies.Append("JWT",token,cookieOptions);
-        return token;
+        return outputRequest;
     }
 }
