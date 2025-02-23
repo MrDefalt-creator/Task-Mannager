@@ -13,7 +13,7 @@ namespace TMBack.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<TaskEntity> GetTaskById(Guid taskId, Guid userId)
+        public async Task<TaskEntity?> GetTaskById(Guid taskId, Guid userId)
         {
             return await _dbContext.Tasks
                 .AsNoTracking()

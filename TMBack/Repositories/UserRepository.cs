@@ -13,17 +13,17 @@ public class UserRepository : IUserRepository
         _dbContext = dbContext;
     }
 
-    public async Task<UserEntity> GetByEmail(string email)
+    public async Task<UserEntity?> GetByEmail(string email)
     {
         return await _dbContext.Users
             .AsNoTracking()
-            .FirstOrDefaultAsync(u => u.Email == email) ?? throw new Exception("User not found");
+            .FirstOrDefaultAsync(u => u.Email == email);
     }
 
-    public async Task<UserEntity> GetById(Guid id)
+    public async Task<UserEntity?> GetById(Guid id)
     {
         return await _dbContext.Users
             .AsNoTracking()
-            .FirstOrDefaultAsync(u => u.Id == id) ?? throw new Exception("User not found");
+            .FirstOrDefaultAsync(u => u.Id == id);
     }
 }

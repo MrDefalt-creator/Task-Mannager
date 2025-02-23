@@ -6,6 +6,6 @@ namespace TMBack.Interfaces.Repositories
     {
         Task<List<TaskEntity>> GetTasks(Guid userId);
 
-        Task<TaskEntity> GetTaskById(Guid taskId, Guid userId);
+        Task<TaskEntity?> GetTaskById(Guid taskId, Guid userId);
     }
 }
