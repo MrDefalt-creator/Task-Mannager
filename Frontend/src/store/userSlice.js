@@ -5,9 +5,9 @@ export const loginUser = createAsyncThunk(
     "user/login",
     async({email, password, rememberMe}, {rejectWithValue}) => {
         try {
-            const response = await UserEndpoints.login(email, password, rememberMe);
-            localStorage.setItem("user", JSON.stringify(response));
-            return response.data;
+                const response = await UserEndpoints.login(email, password, rememberMe);
+                localStorage.setItem("user", JSON.stringify(response.data));
+                return response.data;
         } catch (error) {
             return rejectWithValue(error.response?.data.message || "Ошибка авторизации");
         }
@@ -37,7 +37,7 @@ const userSlice = createSlice({
             state.userId = null;
             state.user = null;
             state.email = null;
-            localStorage.removeItem("user"); // Удаляем из localStorage
+            localStorage.removeItem("user");
         }
     },
     extraReducers: (builder) => {

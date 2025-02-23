@@ -11,7 +11,10 @@ export default function LoginPage() {
 
     const handleLogin = (e) =>{
         e.preventDefault();
-        dispatch(loginUser({email, password, rememberMe}));
+        if(email && password){
+            dispatch(loginUser({email, password, rememberMe}));
+        }
+
     }
 
     return (
@@ -24,7 +27,7 @@ export default function LoginPage() {
                         <input type='checkbox' className='w-4' style={{accentColor: "#7e22ce"}} value={rememberMe} onChange={()=>setRememberMe(!rememberMe)} />
                         <p className='font-sans text-center text-sm'>Запомнить меня на 30 дней</p>
                     </div>
-                    <button type='submit' disabled={loading} className='w-full rounded-md bg-violet-600 hover:bg-violet-700 text-white font-sans py-1.5'>
+                    <button type='submit' disabled={loading} className={'w-full rounded-md bg-violet-600 hover:bg-violet-700 text-white font-sans py-1.5'}>
                         {loading ? "Вход..." : "Войти"}
                     </button>
                     {error && <p className="text-red-500 text-sm">{error}</p>}
