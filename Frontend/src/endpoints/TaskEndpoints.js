@@ -1,4 +1,4 @@
-﻿import $api from "../http/index.jsx";
+﻿import $api from "../http/index.js";
 
 export default class TaskEndpoints {
     static async getTasks(){
