@@ -13,7 +13,7 @@ public static class UsersEndpoints
         
         app.MapPost("login", Login);
         
-        app.MapGet("check_validation", Check_Validation).RequireAuthorization();
+        app.MapGet("check-validation", Check_Validation).RequireAuthorization();
         
         return app;
     }

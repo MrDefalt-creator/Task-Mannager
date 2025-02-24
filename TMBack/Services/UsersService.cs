@@ -64,9 +64,10 @@ public class UsersService
         var cookieOptions = new CookieOptions
         {
             HttpOnly = true,
-            Secure = false,
-            SameSite = SameSiteMode.None,
-            Expires = rememberMe ? DateTime.UtcNow.AddDays(30) : null 
+            Secure = false, // ДОЛЖНО БЫТЬ false для HTTP
+            SameSite = SameSiteMode.Lax, // Работает на локальном сервере
+            Expires = rememberMe ? DateTime.UtcNow.AddDays(30) : DateTime.UtcNow.AddHours(1),
+            Path = "/" // Глобальные куки
         };
 
         var outputRequest = new OutputLoginRequest(user.Id, user.UserName, user.Email);
