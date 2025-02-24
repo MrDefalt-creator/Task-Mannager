@@ -65,7 +65,7 @@ public class UsersService
         {
             HttpOnly = true,
             Secure = false, // ДОЛЖНО БЫТЬ false для HTTP
-            SameSite = SameSiteMode.Lax, // Работает на локальном сервере
+            SameSite = SameSiteMode.Unspecified, // Работает на локальном сервере
             Expires = rememberMe ? DateTime.UtcNow.AddDays(30) : DateTime.UtcNow.AddHours(1),
             Path = "/" // Глобальные куки
         };

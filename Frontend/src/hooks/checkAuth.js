@@ -11,17 +11,12 @@ export default function(){
             } catch(e) {
                 if(e.response?.status === 401){
                     dispatch(logout());
-                    window.location.reload();
                 }
             }
 
             
         };
         checkValidation();
-
-        const intervalId = setInterval(checkValidation,3600000);
-        
-        return() => clearInterval(intervalId)
 
     }, [dispatch]);
 }

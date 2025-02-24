@@ -2,8 +2,8 @@
 
 export default class UserEndpoints {
 
-    static async register(userName, email, password) {
-        return await $api.post("/register", {userName, email, password});
+    static async register(username, email, password) {
+        return await $api.post("/register", {username, email, password});
     }
 
     static async login(email, password, rememberMe) {
