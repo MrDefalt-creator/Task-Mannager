@@ -3,40 +3,12 @@
   "WorkspaceRootPath": "D:\\Projects\\Task-Mannager\\TMBack\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|d:\\projects\\task-mannager\\tmback\\repositories\\taskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:repositories\\taskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|d:\\projects\\task-mannager\\tmback\\services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|d:\\projects\\task-mannager\\tmback\\services\\taskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:services\\taskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|d:\\projects\\task-mannager\\tmback\\endpoints\\taskendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:endpoints\\taskendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|d:\\projects\\task-mannager\\tmback\\models\\taskentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:models\\taskentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|d:\\projects\\task-mannager\\tmback\\contracts\\task\\createtaskrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:contracts\\task\\createtaskrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|d:\\projects\\task-mannager\\tmback\\contracts\\task\\updatetaskrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:contracts\\task\\updatetaskrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|d:\\projects\\task-mannager\\tmback\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|d:\\projects\\task-mannager\\tmback\\interfaces\\repositories\\itaskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:interfaces\\repositories\\itaskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|d:\\projects\\task-mannager\\tmback\\interfaces\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:interfaces\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|d:\\projects\\task-mannager\\tmback\\middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|solutionrelative:middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{338852E1-DE75-49B4-A564-BF6FB64C8712}|TMBack.csproj|d:\\projects\\task-mannager\\tmback\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,142 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ITaskRepository.cs",
-              "DocumentMoniker": "D:\\Projects\\Task-Mannager\\TMBack\\Interfaces\\Repositories\\ITaskRepository.cs",
-              "RelativeDocumentMoniker": "Interfaces\\Repositories\\ITaskRepository.cs",
-              "ToolTip": "D:\\Projects\\Task-Mannager\\TMBack\\Interfaces\\Repositories\\ITaskRepository.cs",
-              "RelativeToolTip": "Interfaces\\Repositories\\ITaskRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ExceptionMiddleware.cs",
+              "DocumentMoniker": "D:\\Projects\\Task-Mannager\\TMBack\\Middleware\\ExceptionMiddleware.cs",
+              "RelativeDocumentMoniker": "Middleware\\ExceptionMiddleware.cs",
+              "ToolTip": "D:\\Projects\\Task-Mannager\\TMBack\\Middleware\\ExceptionMiddleware.cs",
+              "RelativeToolTip": "Middleware\\ExceptionMiddleware.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAswDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T12:18:09.475Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\Projects\\Task-Mannager\\TMBack\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\UserRepository.cs",
-              "ToolTip": "D:\\Projects\\Task-Mannager\\TMBack\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T11:35:34.266Z",
+              "WhenOpened": "2025-02-24T07:48:20.411Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TaskRepository.cs",
-              "DocumentMoniker": "D:\\Projects\\Task-Mannager\\TMBack\\Repositories\\TaskRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\TaskRepository.cs",
-              "ToolTip": "D:\\Projects\\Task-Mannager\\TMBack\\Repositories\\TaskRepository.cs",
-              "RelativeToolTip": "Repositories\\TaskRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Title": "UsersService.cs",
+              "DocumentMoniker": "D:\\Projects\\Task-Mannager\\TMBack\\Services\\UsersService.cs",
+              "RelativeDocumentMoniker": "Services\\UsersService.cs",
+              "ToolTip": "D:\\Projects\\Task-Mannager\\TMBack\\Services\\UsersService.cs",
+              "RelativeToolTip": "Services\\UsersService.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAswEYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T11:29:55.926Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "D:\\Projects\\Task-Mannager\\TMBack\\Interfaces\\Repositories\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "Interfaces\\Repositories\\IUserRepository.cs",
-              "ToolTip": "D:\\Projects\\Task-Mannager\\TMBack\\Interfaces\\Repositories\\IUserRepository.cs",
-              "RelativeToolTip": "Interfaces\\Repositories\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T11:28:10.54Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TaskService.cs",
-              "DocumentMoniker": "D:\\Projects\\Task-Mannager\\TMBack\\Services\\TaskService.cs",
-              "RelativeDocumentMoniker": "Services\\TaskService.cs",
-              "ToolTip": "D:\\Projects\\Task-Mannager\\TMBack\\Services\\TaskService.cs",
-              "RelativeToolTip": "Services\\TaskService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T10:36:43.755Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 4,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TaskEntity.cs",
-              "DocumentMoniker": "D:\\Projects\\Task-Mannager\\TMBack\\Models\\TaskEntity.cs",
-              "RelativeDocumentMoniker": "Models\\TaskEntity.cs",
-              "ToolTip": "D:\\Projects\\Task-Mannager\\TMBack\\Models\\TaskEntity.cs",
-              "RelativeToolTip": "Models\\TaskEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T15:04:36.35Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CreateTaskRequest.cs",
-              "DocumentMoniker": "D:\\Projects\\Task-Mannager\\TMBack\\Contracts\\Task\\CreateTaskRequest.cs",
-              "RelativeDocumentMoniker": "Contracts\\Task\\CreateTaskRequest.cs",
-              "ToolTip": "D:\\Projects\\Task-Mannager\\TMBack\\Contracts\\Task\\CreateTaskRequest.cs",
-              "RelativeToolTip": "Contracts\\Task\\CreateTaskRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T14:43:37.154Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UpdateTaskRequest.cs",
-              "DocumentMoniker": "D:\\Projects\\Task-Mannager\\TMBack\\Contracts\\Task\\UpdateTaskRequest.cs",
-              "RelativeDocumentMoniker": "Contracts\\Task\\UpdateTaskRequest.cs",
-              "ToolTip": "D:\\Projects\\Task-Mannager\\TMBack\\Contracts\\Task\\UpdateTaskRequest.cs",
-              "RelativeToolTip": "Contracts\\Task\\UpdateTaskRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T14:42:47.912Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Projects\\Task-Mannager\\TMBack\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\Projects\\Task-Mannager\\TMBack\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACwAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T14:39:28.262Z",
+              "WhenOpened": "2025-02-24T07:48:05.105Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TaskEndpoints.cs",
-              "DocumentMoniker": "D:\\Projects\\Task-Mannager\\TMBack\\Endpoints\\TaskEndpoints.cs",
-              "RelativeDocumentMoniker": "Endpoints\\TaskEndpoints.cs",
-              "ToolTip": "D:\\Projects\\Task-Mannager\\TMBack\\Endpoints\\TaskEndpoints.cs",
-              "RelativeToolTip": "Endpoints\\TaskEndpoints.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAewC8AAAAgAAAAAAAAAA==",
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\Projects\\Task-Mannager\\TMBack\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\UserRepository.cs",
+              "ToolTip": "D:\\Projects\\Task-Mannager\\TMBack\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T11:24:52.84Z",
+              "WhenOpened": "2025-02-24T07:46:54.514Z",
               "EditorCaption": ""
             }
           ]

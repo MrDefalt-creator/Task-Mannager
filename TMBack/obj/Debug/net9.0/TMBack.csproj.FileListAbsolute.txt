@@ -407,3 +407,14 @@ D:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\refint\TMBack.dll
 D:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\TMBack.pdb
 D:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\TMBack.genruntimeconfig.cache
 D:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\ref\TMBack.dll
+D:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+D:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+D:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+D:\Projects\Task-Mannager\TMBack\bin\Debug\net9.0\System.Text.Json.dll
+D:\Projects\Task-Mannager\TMBack\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

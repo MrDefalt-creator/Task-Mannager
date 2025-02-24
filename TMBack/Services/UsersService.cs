@@ -49,13 +49,13 @@ public class UsersService
 
     public async Task<OutputLoginRequest> Login(string email, string password, bool rememberMe)
     {
-        var user = _userRepository.GetByEmail(email);
+        var user = await _userRepository.GetByEmail(email);
         if (user == null)
         {
-            throw new UnauthorizedAccessException($"Пользователя с этим email {email} не сушествует");
+            throw new UnauthorizedAccessException("Пользователя с этим email не сушествует");
         }
         
-        var result = _passwordHasher.Verify(password, user.Result.PasswordHash);
+        var result = _passwordHasher.Verify(password, user.PasswordHash);
 
         if (result == false)
         {
@@ -69,9 +69,9 @@ public class UsersService
             Expires = rememberMe ? DateTime.UtcNow.AddDays(30) : null 
         };
 
-        var outputRequest = new OutputLoginRequest(user.Result.Id, user.Result.UserName, user.Result.Email);
+        var outputRequest = new OutputLoginRequest(user.Id, user.UserName, user.Email);
 
-        var token = _jwtProvider.GenerateToken(user.Result);
+        var token = _jwtProvider.GenerateToken(user);
         _httpContextAccessor.HttpContext?.Response.Cookies.Append("JWT",token,cookieOptions);
         return outputRequest;
     }

@@ -48,7 +48,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -154,6 +155,18 @@
           }
         }
       }
+    },
+    "/check_validation": {
+      "get": {
+        "tags": [
+          "UsersEndpoints"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -186,6 +199,9 @@
           "password": {
             "type": "string",
             "nullable": true
+          },
+          "rememberMe": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false

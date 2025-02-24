@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "TMBack.Endpoints.UsersEndpoints",
+    "Method": "Check_Validation",
+    "RelativePath": "check_validation",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TMBack.Endpoints.UsersEndpoints",
     "Method": "Login",
     "RelativePath": "login",
     "HttpMethod": "POST",
@@ -91,7 +107,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.String",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
@@ -140,8 +156,8 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
+        "Type": "System.Guid",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [

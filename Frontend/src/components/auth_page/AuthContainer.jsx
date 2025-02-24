@@ -16,7 +16,6 @@ export default function AuthContainer({ children }) {
             <div className="mt-[49px] mx-auto grid grid-cols-1 gap-6">
                 {children}
             </div>
-
         </div>
     )
 }
