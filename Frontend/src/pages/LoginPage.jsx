@@ -9,8 +9,8 @@ export default function LoginPage() {
     const dispatch = useDispatch();
     const {loading, error} = useSelector((state) => state.user);
 
-    const handleLogin = () =>{
-
+    const handleLogin = (e) =>{
+        e.preventDefault();
         if(email && password){
             dispatch(loginUser({email, password, rememberMe}));
         }
