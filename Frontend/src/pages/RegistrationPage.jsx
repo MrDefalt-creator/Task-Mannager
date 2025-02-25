@@ -1,27 +1,20 @@
 ﻿import AuthContainer from "../components/auth_page/AuthContainer.jsx";
 import {useDispatch, useSelector} from "react-redux";
-import {loginUser} from "../store/userSlice.js";
 import {useState} from "react";
-import UserEndpoints from "../endpoints/UserEndpoints.js";
 import {NavLink} from "react-router-dom";
+import {registerUser} from "../store/userSlice.js";
 
 export default function RegistrationPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
-    const [loading, setLoading] = useState(false)
     const dispatch = useDispatch();
-    const {error} = useSelector((state) => state.user);
+    const {loading, error} = useSelector((state) => state.user);
 
     const handleLogin = async (e) =>{
         e.preventDefault();
         if(username && email && password){
-            setLoading(true);
-            await UserEndpoints.register(username,email,password);
-            dispatch(loginUser({email, password, rememberMe: true}));
-            setLoading(false);
-        } else {
-            setLoading(false);
+            dispatch(registerUser({username, email, password}));
         }
 
     }
