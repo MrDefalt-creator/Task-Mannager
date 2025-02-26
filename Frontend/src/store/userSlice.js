@@ -8,6 +8,7 @@ export const loginUser = createAsyncThunk(
     async({email, password, rememberMe}, {rejectWithValue}) => {
         try {
                 const response = await UserEndpoints.login(email, password, rememberMe);
+                localStorage.setItem("user", JSON.stringify(response.data));
                 return response.data;
         } catch (error) {
             return rejectWithValue(error.response?.data.message || "Ошибка авторизации");
@@ -19,6 +20,8 @@ export const registerUser = createAsyncThunk(
     async({username,email,password}, {rejectWithValue}) => {
         try {
            const response = await UserEndpoints.register(username,email,password);
+           console.log(response);
+           localStorage.setItem("user", JSON.stringify(response.data));
            return response.data;
         } catch (error) {
             return rejectWithValue(error.response?.data.message || "Ошибка регистрации");
@@ -33,7 +36,13 @@ const initialState = {
     loading: false,
     error: null
 };
+const savedUser = JSON.parse(localStorage.getItem("user"));
+if (savedUser) {
+    initialState.userId = savedUser.userId;
+    initialState.user = savedUser.username;
+    initialState.email = savedUser.email;
 
+}
 const userSlice = createSlice({
     name: "user",
     initialState,
@@ -69,6 +78,7 @@ const userSlice = createSlice({
                 state.userId = action.payload.userId;
                 state.user = action.payload.username;
                 state.email = action.payload.email;
+                localStorage.removeItem("user");
             })
             .addCase(registerUser.rejected, (state, action) => {
                 state.loading = false;
@@ -78,7 +88,7 @@ const userSlice = createSlice({
 });
 
 const persistConfig = {
-    key: 'root',
+    key: 'user',
     storage,
 }
 const persistedReducer = persistReducer(persistConfig, userSlice.reducer);

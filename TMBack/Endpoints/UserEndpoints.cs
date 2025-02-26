@@ -20,9 +20,9 @@ public static class UsersEndpoints
 
     private static async Task<IResult> Register([FromBody]RegisterUserRequest request,UsersService usersService)
     {
-        await usersService.Register(request.UserName, request.Email, request.Password);
+        var outRegisterRequest = await usersService.Register(request.UserName, request.Email, request.Password);
         
-        return Results.Ok();
+        return Results.Ok(outRegisterRequest);
     }
 
     private static async Task<IResult> Login([FromBody]LoginUserRequest request, UsersService usersService, HttpContext context)

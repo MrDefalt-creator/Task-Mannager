@@ -4,7 +4,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import RegistrationPage from "./pages/RegistrationPage.jsx";
 function App() {
-
+    checkAuth();
 
   return (
     <main className='w-screen h-screen bg-white'>

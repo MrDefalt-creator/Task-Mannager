@@ -27,7 +27,7 @@ public class UsersService
         _httpContextAccessor = httpContextAccessor;
     }
     
-    public async Task Register(string userName, string email, string password)
+    public async Task<OutputLoginRequest> Register(string userName, string email, string password)
     {
         var hashedPassword = _passwordHasher.Generate(password);
 
@@ -45,6 +45,9 @@ public class UsersService
         await _dbContext.Users.AddAsync(user);
         
         await _dbContext.SaveChangesAsync();
+        
+        return await Login(email,password,rememberMe: true);
+        
     }
 
     public async Task<OutputLoginRequest> Login(string email, string password, bool rememberMe)
@@ -52,7 +55,7 @@ public class UsersService
         var user = await _userRepository.GetByEmail(email);
         if (user == null)
         {
-            throw new UnauthorizedAccessException("Пользователя с этим email не сушествует");
+            throw new UnauthorizedAccessException($"Пользователя с этим email {email} не сушествует");
         }
         
         var result = _passwordHasher.Verify(password, user.PasswordHash);
@@ -64,10 +67,9 @@ public class UsersService
         var cookieOptions = new CookieOptions
         {
             HttpOnly = true,
-            Secure = false, // ДОЛЖНО БЫТЬ false для HTTP
-            SameSite = SameSiteMode.Unspecified, // Работает на локальном сервере
-            Expires = rememberMe ? DateTime.UtcNow.AddDays(30) : DateTime.UtcNow.AddHours(1),
-            Path = "/" // Глобальные куки
+            Secure = false,
+            SameSite = SameSiteMode.None,
+            Expires = rememberMe ? DateTime.UtcNow.AddDays(30) : null 
         };
 
         var outputRequest = new OutputLoginRequest(user.Id, user.UserName, user.Email);
