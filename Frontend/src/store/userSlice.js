@@ -1,5 +1,7 @@
 ﻿import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import UserEndpoints from "../endpoints/UserEndpoints.js";
+import storage from "redux-persist/lib/storage";
+import {persistReducer} from "redux-persist";
 
 export const loginUser = createAsyncThunk(
     "user/login",
@@ -10,6 +12,18 @@ export const loginUser = createAsyncThunk(
                 return response.data;
         } catch (error) {
             return rejectWithValue(error.response?.data.message || "Ошибка авторизации");
+        }
+    }
+);
+export const registerUser = createAsyncThunk(
+    'user/register',
+    async({username,email,password}, {rejectWithValue}) => {
+        try {
+           const response = await UserEndpoints.register(username,email,password);
+           localStorage.setItem("user", JSON.stringify(response.data));
+           return response.data;
+        } catch (error) {
+            return rejectWithValue(error.response?.data.message || "Ошибка регистрации");
         }
     }
 );
@@ -59,6 +73,11 @@ const userSlice = createSlice({
     }
 });
 
+const persistConfig = {
+    key: 'root',
+    storage,
+}
+const persistedReducer = persistReducer(persistConfig, userSlice.reducer);
 export const { logout } = userSlice.actions;
-export default userSlice.reducer;
+export default persistedReducer;
 
