@@ -3,6 +3,7 @@ import checkAuth from './hooks/checkAuth.js';
 import LoginPage from "./pages/LoginPage.jsx";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import RegistrationPage from "./pages/RegistrationPage.jsx";
+import DashboardPage from "./pages/DashboarPage.jsx";
 function App() {
     checkAuth();
 
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path='login' element={<LoginPage/>}/>
         <Route path='register' element={<RegistrationPage/>}/>
+          <Route path='dashboard' element={<DashboardPage/>}/>
       </Routes>
       </BrowserRouter>
       

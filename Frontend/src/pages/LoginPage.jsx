@@ -2,6 +2,7 @@ import AuthContainer from "../components/auth_page/AuthContainer.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {loginUser} from "../store/userSlice.js";
 import {useState} from "react";
+import {NavLink} from "react-router-dom";
 export default function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -25,7 +26,11 @@ export default function LoginPage() {
                     <input placeholder="Пароль" type="password" className="input-auth" value={password} onChange={(e) => setPassword(e.target.value)} />
                     <div className='flex place-content-around'>
                         <input type='checkbox' className='w-4' style={{accentColor: "#7e22ce"}} value={rememberMe} onChange={()=>setRememberMe(!rememberMe)} />
-                        <p className='font-sans text-center text-sm'>Запомнить меня на 30 дней</p>
+                        <p className='font-sans text-center text-xs'>Запомнить меня на 30 дней</p>
+                    </div>
+                    <div className='flex justify-between'>
+                        <p className='font-sans text-center text-xs'>Не пользователь?</p>
+                        <NavLink to='/register' className='font-sans text-center text-xs text-violet-600'>Зарегистрироваться</NavLink>
                     </div>
                     <button type='submit' disabled={loading} className={'w-full rounded-md bg-violet-600 hover:bg-violet-700 text-white font-sans py-1.5'}>
                         {loading ? "Вход..." : "Войти"}
