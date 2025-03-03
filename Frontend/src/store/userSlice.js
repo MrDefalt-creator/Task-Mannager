@@ -90,6 +90,7 @@ const userSlice = createSlice({
 const persistConfig = {
     key: 'user',
     storage,
+    whitelist: ["user"]
 }
 const persistedReducer = persistReducer(persistConfig, userSlice.reducer);
 export const { logout } = userSlice.actions;
