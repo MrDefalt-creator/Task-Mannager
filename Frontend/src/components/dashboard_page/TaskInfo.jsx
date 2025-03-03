@@ -15,6 +15,9 @@
                 <p className='font-sans text-xl font-medium'>Создана в: </p>
                 <p className='font-sans text-xl font-medium'>Необходимо завершить: </p>
             </div>
+            <div className='flex justify-center h-full w-full mt-8'>
+                <input className='w-[80%] h-full border-2 border-slate-400 focus:outline-none' type='text'/>
+            </div>
         </section>
     )
 }
