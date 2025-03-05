@@ -3,9 +3,9 @@
 export default function TaskInfo(){
     const {taskId, title, description, createdAt,mustFinish} = useSelector((state) => state.task);
     return(
-        <section className='block w-full h-full'>
+        <section className='block w-[99%] h-full p-3 bg-white rounded-lg shadow-lg'>
             <div className='flex justify-center mt-4 items-center'>
-                <h3 className='font-sans text-xl font-semibold'>Информация о задаче</h3>
+                <h3 className='font-sans text-xl font-semibold text-violet-500'>Информация о задаче</h3>
             </div>
             <div className='flex justify-around mt-4'>
                 <div/>

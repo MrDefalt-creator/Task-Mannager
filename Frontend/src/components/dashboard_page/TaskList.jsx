@@ -24,13 +24,13 @@ export default function TaskList() {
     const [selectedTask, setSelectedTask] = useState(null);
 
     if (fetchedTasks === null) {
-        return <div className='flex justify-center items-center'>Задачи загружаются...</div>;
+        return <div className='flex justify-center items-center font-sans'>Задачи загружаются...</div>;
     }
 
     return (
-        <section className='block'>
+        <section className='block shadow-xl rounded-lg ml-2 bg-white'>
             <div className='flex items-center justify-center mt-4'>
-                <h3 className='font-sans text-xl font-semibold'>Список Задач</h3>
+                <h3 className='font-sans text-xl font-semibold text-violet-500'>Список Задач</h3>
             </div>
             <div className='flex flex-col mt-4'>
                 {
