@@ -32,8 +32,10 @@ export default function TaskInfo() {
             </div>
             <div className="flex justify-center h-full w-full mt-8">
         <textarea
-            className="font-sans font-medium text-base w-[80%] border-2 border-slate-400 focus:outline-none h-[618px] resize-none"
+            className="font-sans font-medium text-base w-[80%] border-2 border-slate-400 focus:outline-none h-[618px] resize-none p-3 rounded-lg focus:border-violet-500"
             defaultValue={description}
+            disabled={false}
+            placeholder='Описание задачи'
         />
             </div>
         </section>

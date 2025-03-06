@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import TaskEndpoints from "../../endpoints/TaskEndpoints.js";
 import {useDispatch} from "react-redux";
 import {getTask} from "../../store/taskSlice.js";
+import {useNavigate} from "react-router-dom";
 
 export default function TaskList() {
     const [fetchedTasks, setFetchedTasks] = useState([]);
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     useEffect(() => {
         const getTasks = async () => {
@@ -19,7 +21,7 @@ export default function TaskList() {
         };
 
         getTasks();
-    }, []);
+    }, [navigate]);
 
     const [selectedTask, setSelectedTask] = useState(null);
 
@@ -40,7 +42,11 @@ export default function TaskList() {
                                 key={task.id}
                                 task={task}
                                 isSelected={selectedTask === task.id}
-                                onSelect={() => { setSelectedTask(task.id); dispatch(getTask({id: task.id})); }} />
+                                onSelect={() => {
+                                    setSelectedTask(task.id);
+                                    dispatch(getTask({id: task.id}));
+                                    navigate('/dashboard/taskinfo')
+                                }} />
                         ))
                     ) : (
                         <div className='flex justify-center items-center'>Нет задач для отображения</div>
