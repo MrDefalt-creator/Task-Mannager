@@ -1,6 +1,8 @@
 ﻿import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import TaskEndpoints from "../endpoints/TaskEndpoints.js";
 
+
+
 export const getTask = createAsyncThunk(
     'task/getTask',
     async ({id}, {rejectWithValue}) => {
@@ -13,6 +15,32 @@ export const getTask = createAsyncThunk(
         }
     }
 );
+
+export const updateTask = createAsyncThunk(
+    'task/updateTask',
+    async ({id, title, description, mustFinishAt,navigate},{rejectWithValue}) => {
+        try{
+            await TaskEndpoints.updateTask(id, title, description, mustFinishAt);
+            navigate('/dashboard/');
+        } catch (error){
+            error.preventDefault();
+            return rejectWithValue(error.response?.data.message || "Задача не найдена");
+        }
+    }
+);
+
+export const deleteTask = createAsyncThunk(
+    'task/deleteTask',
+    async ({id,navigate}, {rejectWithValue}) => {
+        try {
+            await TaskEndpoints.deleteTask(id);
+            navigate('/dashboard/');
+        } catch (error){
+            error.preventDefault();
+            return rejectWithValue(error.response?.data.message || "Удаление не удалось");
+        }
+    }
+)
 
 const initialState = {
     taskId: null,
