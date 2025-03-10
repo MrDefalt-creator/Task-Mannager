@@ -39,8 +39,8 @@ public static class TaskEndpoints
     }
     private static async Task<IResult> CreateTask([FromBody] CreateTaskRequest request, TaskService service)
     {
-        await service.CreateTask(request.Title, request.Description, request.MustFinishAt);
-        return Results.Ok();
+        var task = await service.CreateTask(request.Title, request.Description, request.MustFinishAt);
+        return Results.Ok(task);
     }
 
     private static async Task<IResult> UpdateTask([FromRoute]Guid id, [FromBody]UpdateTaskRequest request, TaskService service)

@@ -22,13 +22,14 @@ public class TaskService
 
     }
 
-    public async Task CreateTask(string title, string? description, DateOnly mustFinishDate)
+    public async Task<Guid> CreateTask(string title, string? description, DateOnly mustFinishDate)
     {
         Guid userId = _userFromClaims.GetUserFromClaims();
         
         var user = await _userRepository.GetById(userId);
         var task = new TaskEntity
         {
+            Id = Guid.NewGuid(),
             Title = title,
             Description = description,
             CreatedAt = DateTime.UtcNow,
@@ -40,6 +41,8 @@ public class TaskService
             _dbContext.Users.Attach(user);
             _dbContext.Tasks.Add(task);
             await _dbContext.SaveChangesAsync();
+
+            return task.Id;
 
     }
 

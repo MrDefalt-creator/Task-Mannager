@@ -1,5 +1,6 @@
 ﻿import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import TaskEndpoints from "../endpoints/TaskEndpoints.js";
+import * as response from "autoprefixer";
 
 
 
@@ -15,6 +16,20 @@ export const getTask = createAsyncThunk(
         }
     }
 );
+
+export const createTask = createAsyncThunk(
+    'task/createTask',
+    async ({title, description, mustFinishAt, navigate, dispatch}, {rejectWithValue}) => {
+        try {
+            const response = await TaskEndpoints.createTask(title, description, mustFinishAt);
+            dispatch(getTask({id: response.data.id}));
+            navigate('taskinfo');
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error.response?.data.message || "Задача не найдена");
+        }
+    }
+)
 
 export const updateTask = createAsyncThunk(
     'task/updateTask',
