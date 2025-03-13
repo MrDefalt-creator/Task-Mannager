@@ -3,6 +3,7 @@ import TaskList from "../components/dashboard_page/TaskList.jsx";
 import TaskInfo from "../components/dashboard_page/TaskInfo.jsx";
 import {Routes, Route} from "react-router-dom";
 import TaskStub from "../components/dashboard_page/TaskStub.jsx";
+import CreateTask from "../components/dashboard_page/CreateTask.jsx";
 
 export default function DashboardPage() {
     return (
@@ -12,6 +13,7 @@ export default function DashboardPage() {
                 <TaskList className="h-full" />
                 <Routes>
                     <Route path="taskinfo" element={<TaskInfo className="h-full" />}/>
+                    <Route path='createtask' element={<CreateTask className="h-full" />}/>
                     <Route path='/' element={<TaskStub className="h-full"/>}/>
                 </Routes>
 

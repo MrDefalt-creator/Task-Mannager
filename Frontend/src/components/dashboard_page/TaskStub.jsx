@@ -1,6 +1,4 @@
-﻿import {useSelector} from "react-redux";
-export default function TaskStub() {
-    const {taskId} = useSelector((state) => state.task);
+﻿export default function TaskStub() {
     return (
         <section className="block w-[99%] h-full p-3 bg-white rounded-lg shadow-lg">
             <div className='flex flex-col gap-2 items-center h-full justify-center'>
