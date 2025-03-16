@@ -12,7 +12,6 @@ export default function TaskInfo() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [redacting, setRedacting] = useState(false);
-    console.log(typeof(editableMustFinish))
     useEffect(() => {
         if (description) {
             setEditableDescr(description);
@@ -125,12 +124,21 @@ export default function TaskInfo() {
                             </div>
 
                         ) : (
-                            <button
-                                className="bg-orange-400 px-6 py-3 font-sans font-medium text-base rounded-lg"
-                                onClick={()=> setRedacting(true)}
-                            >
-                                Редактировать задачу
-                            </button>
+                            <div>
+                                <button
+                                    className="bg-orange-400 px-6 py-3 font-sans font-medium text-base rounded-lg mr-4"
+                                    onClick={()=> setRedacting(true)}
+                                >
+                                    Редактировать задачу
+                                </button>
+                                <button
+                                    className="bg-violet-400 px-6 py-3 font-sans font-medium text-base rounded-lg"
+                                    onClick={()=> navigate('/dashboard/createtask')}
+                                >
+                                    Cоздать задачу
+                                </button>
+                            </div>
+
                         )
                     }
 

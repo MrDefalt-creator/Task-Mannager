@@ -1,6 +1,8 @@
 import AuthPlaceholder from "./AuthPlaceholder.jsx";
 
+
 export default function AuthContainer({ children }) {
+
     return (
         <div className="mx-auto max-w-[720px] flex flex-col">
             <AuthPlaceholder/>

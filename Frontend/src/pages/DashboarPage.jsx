@@ -4,8 +4,10 @@ import TaskInfo from "../components/dashboard_page/TaskInfo.jsx";
 import {Routes, Route} from "react-router-dom";
 import TaskStub from "../components/dashboard_page/TaskStub.jsx";
 import CreateTask from "../components/dashboard_page/CreateTask.jsx";
+import useCheckAuth from "../hooks/checkAuth.js";
 
 export default function DashboardPage() {
+    useCheckAuth();
     return (
         <main className="h-screen flex flex-col bg-gray-100">
             <Header />

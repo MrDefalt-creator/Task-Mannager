@@ -1,7 +1,7 @@
 ﻿import AuthContainer from "../components/auth_page/AuthContainer.jsx";
 import {useDispatch, useSelector} from "react-redux";
-import {useState} from "react";
-import {NavLink} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {NavLink, useNavigate} from "react-router-dom";
 import {registerUser} from "../store/userSlice.js";
 
 export default function RegistrationPage() {
@@ -9,12 +9,25 @@ export default function RegistrationPage() {
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
     const dispatch = useDispatch();
-    const {loading, error} = useSelector((state) => state.user);
+    const {loading, error, userId} = useSelector((state) => state.user);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(userId){
+            navigate(`/dashboard/`);
+        }
+    })
 
     const handleLogin = async (e) =>{
         e.preventDefault();
         if(username && email && password){
-            dispatch(registerUser({username, email, password}));
+            try{
+                dispatch(registerUser({username, email, password}));
+                navigate("/dashboard/");
+            } catch (e){
+                e.preventDefault();
+            }
+
         }
 
     }
