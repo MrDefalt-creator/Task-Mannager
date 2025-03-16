@@ -11,7 +11,7 @@ export default function CreateTask() {
     const [mustFinishAt, setMustFinishAt] = useState();
     const [error, setError] = useState('');
     const createTaskAsync = async () => {
-        if(!title && !description && !mustFinishAt){
+        if(!title || !description || !mustFinishAt){
             setError('Все поля для заполнения обязательны!')
         }
         if(title && description && mustFinishAt){
