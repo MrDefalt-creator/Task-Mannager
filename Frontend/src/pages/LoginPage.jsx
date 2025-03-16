@@ -17,11 +17,11 @@ export default function LoginPage() {
         }
     })
 
-    const handleLogin = (e) =>{
+    const handleLogin = async (e) =>{
         e.preventDefault();
         if(email && password){
             try{
-                dispatch(loginUser({email, password, rememberMe}));
+                await dispatch(loginUser({email, password, rememberMe}));
                 navigate("/dashboard");
             } catch(e){
                 e.preventDefault()

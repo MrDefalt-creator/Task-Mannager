@@ -22,7 +22,7 @@ export default function RegistrationPage() {
         e.preventDefault();
         if(username && email && password){
             try{
-                dispatch(registerUser({username, email, password}));
+                await dispatch(registerUser({username, email, password}));
                 navigate("/dashboard/");
             } catch (e){
                 e.preventDefault();

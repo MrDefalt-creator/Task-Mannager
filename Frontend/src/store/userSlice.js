@@ -51,6 +51,7 @@ const userSlice = createSlice({
             state.userId = null;
             state.user = null;
             state.email = null;
+            localStorage.clear();
         }
     },
     extraReducers: (builder) => {
@@ -90,7 +91,7 @@ const userSlice = createSlice({
 const persistConfig = {
     key: 'user',
     storage,
-    whitelist: ["user"]
+    whitelist: ["userId", "user", "email"]
 }
 const persistedReducer = persistReducer(persistConfig, userSlice.reducer);
 export const { logout } = userSlice.actions;

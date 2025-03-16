@@ -14,7 +14,7 @@ export default function CreateTask() {
         if(!title || !mustFinishAt){
             setError('Поля заголовок и завершить для заполнения обязательны!')
         }
-        if(title && description && mustFinishAt){
+        if(title && mustFinishAt){
             try{
                 const taskData = await dispatch(createTask({title, description, mustFinishAt}));
                 if (createTask.fulfilled.match(taskData)) {
