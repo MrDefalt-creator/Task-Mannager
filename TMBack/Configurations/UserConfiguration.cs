@@ -17,6 +17,8 @@ namespace TMBack.Configurations
             builder
                 .HasMany(u => u.RefreshTokens)
                 .WithOne(r => r.User);
+            
+            builder.HasIndex(u => u.Email).IsUnique();
 
         }
     }
