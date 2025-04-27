@@ -27,7 +27,7 @@ namespace TMBack.Infrastructure
 
         public Guid GetUserFromClaimsFromHeader()
         {
-            var claim = _httpContextAccessor.HttpContext?.Request.Headers["JWT"].ToString();
+            var claim = _httpContextAccessor.HttpContext?.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
             
             var userIdvValue = new JwtSecurityTokenHandler().ReadJwtToken(claim).Claims.FirstOrDefault(x => x.Value == "userId")?.Value;
 

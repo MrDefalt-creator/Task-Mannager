@@ -80,7 +80,7 @@ public class UsersService
 
         if (rememberMe)
         {
-            if (!_refreshTokenRepository.RefreshTokenExists(user.Id))
+            if (!await _refreshTokenRepository.RefreshTokenExists(user.Id))
             {
                 var refreshToken = new RefreshTokenEntity
                 {
@@ -99,7 +99,29 @@ public class UsersService
                 };
                 
                 _httpContextAccessor.HttpContext?.Response.Cookies.Append("refreshToken", refreshToken.RefreshToken, cookieOptions);
+                
+                await _dbContext.RefreshTokens.AddAsync(refreshToken);
+                await _dbContext.SaveChangesAsync();
             }
+        }
+        else
+        {
+            var refreshToken = await _refreshTokenRepository.GetRefreshToken(user.Id);
+
+            if (refreshToken == null)
+            {
+                throw new UnauthorizedAccessException("Ошибка авторизации");
+            }
+            
+            var cookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = false,
+                SameSite = SameSiteMode.None,
+                Expires = null
+            };
+            
+            _httpContextAccessor.HttpContext?.Response.Cookies.Append("refreshToken", refreshToken.RefreshToken, cookieOptions);
         }
         
         var token = _jwtProvider.GenerateToken(user);
