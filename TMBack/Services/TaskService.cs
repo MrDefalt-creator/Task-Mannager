@@ -24,7 +24,7 @@ public class TaskService
 
     public async Task<Guid> CreateTask(string title, string? description, DateOnly mustFinishDate)
     {
-        Guid userId = _userFromClaims.GetUserFromClaims();
+        Guid userId = _userFromClaims.GetUserFromClaimsFromCookie();
         
         var user = await _userRepository.GetById(userId);
         var task = new TaskEntity
@@ -48,7 +48,7 @@ public class TaskService
 
     public async Task<List<TaskEntity>> GetTasks()
     {
-        Guid userId = _userFromClaims.GetUserFromClaims();
+        Guid userId = _userFromClaims.GetUserFromClaimsFromCookie();
 
         var tasks = await _taskRepository.GetTasks(userId);
         if (tasks == null)
@@ -62,7 +62,7 @@ public class TaskService
 
     public async Task<TaskEntity> GetTaskById(Guid taskId)
     {
-        Guid userId = _userFromClaims.GetUserFromClaims();
+        Guid userId = _userFromClaims.GetUserFromClaimsFromCookie();
 
         var task = await _taskRepository.GetTaskById(taskId, userId);
         if (task == null)
@@ -75,7 +75,7 @@ public class TaskService
 
     public async Task UpdateTask(Guid taskId, string? newTitle, string? newDescription, DateOnly? newMustFinishDate)
     {
-        Guid userId = _userFromClaims.GetUserFromClaims();
+        Guid userId = _userFromClaims.GetUserFromClaimsFromCookie();
 
         var task = await _taskRepository.GetTaskById(taskId, userId);
 
@@ -101,7 +101,7 @@ public class TaskService
 
     public async Task DeleteTask(Guid taskId)
     {
-        Guid userId = _userFromClaims.GetUserFromClaims();
+        Guid userId = _userFromClaims.GetUserFromClaimsFromCookie();
         
         var task = await _taskRepository.GetTaskById(taskId, userId);
         if (task == null)

@@ -5,7 +5,8 @@ namespace TMBack.Contracts.User;
 public record OutputLoginRequest(
     [Required] Guid UserId,
     [Required] string Username,
-    [Required] string Email    
+    [Required] string Email,
+    [Required] string AccessToken
     )
 {
 }

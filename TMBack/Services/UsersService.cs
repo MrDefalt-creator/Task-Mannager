@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 using TMBack.Interfaces.Auth;
 using TMBack.Interfaces.Repositories;
 using TMBack.Models;
@@ -18,9 +19,12 @@ public class UsersService
     private readonly IUserRepository _userRepository;
     
     private readonly IHttpContextAccessor _httpContextAccessor;
-    public UsersService(IHttpContextAccessor httpContextAccessor,IUserRepository userRepository,IJwtProvider jwtProvider,TaskManagerDbContext dbContext,IPasswordHasher passwordHasher)
+    
+    private readonly IRefreshTokenRepository _refreshTokenRepository;
+    public UsersService(IHttpContextAccessor httpContextAccessor,IUserRepository userRepository,IJwtProvider jwtProvider,TaskManagerDbContext dbContext,IPasswordHasher passwordHasher, IRefreshTokenRepository refreshTokenRepository)
     {
         _passwordHasher = passwordHasher;
+        _refreshTokenRepository = refreshTokenRepository;
         _dbContext = dbContext;
         _jwtProvider = jwtProvider;
         _userRepository = userRepository;
@@ -42,9 +46,16 @@ public class UsersService
             RefreshTokens = new List<RefreshTokenEntity>()
         };
         
-        await _dbContext.Users.AddAsync(user);
-        
-        await _dbContext.SaveChangesAsync();
+        try
+        {
+            await _dbContext.Users.AddAsync(user);
+
+            await _dbContext.SaveChangesAsync();
+        }
+        catch (DbUpdateException)
+        {
+            throw new DbUpdateException("Пользователь с данным Email уже существует");
+        }
         
         return await Login(email,password,rememberMe: true);
         
@@ -52,11 +63,13 @@ public class UsersService
 
     public async Task<OutputLoginRequest> Login(string email, string password, bool rememberMe)
     {
+        
         var user = await _userRepository.GetByEmail(email);
         if (user == null)
         {
             throw new UnauthorizedAccessException($"Пользователя с этим email {email} не сушествует");
         }
+        
         
         var result = _passwordHasher.Verify(password, user.PasswordHash);
 
@@ -64,18 +77,35 @@ public class UsersService
         {
             throw new UnauthorizedAccessException("Неправильный пароль");
         }
-        var cookieOptions = new CookieOptions
+
+        if (rememberMe)
         {
-            HttpOnly = true,
-            Secure = false,
-            SameSite = SameSiteMode.None,
-            Expires = rememberMe ? DateTime.UtcNow.AddDays(30) : null 
-        };
-
-        var outputRequest = new OutputLoginRequest(user.Id, user.UserName, user.Email);
-
+            if (!_refreshTokenRepository.RefreshTokenExists(user.Id))
+            {
+                var refreshToken = new RefreshTokenEntity
+                {
+                    Id = Guid.NewGuid(),
+                    UserId = user.Id,
+                    IsRevoked = false,
+                    RefreshToken = _jwtProvider.GenerateRefreshToken(user)
+                };
+                
+                var cookieOptions = new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = false,
+                    SameSite = SameSiteMode.None,
+                    Expires = DateTimeOffset.UtcNow.AddDays(30)
+                };
+                
+                _httpContextAccessor.HttpContext?.Response.Cookies.Append("refreshToken", refreshToken.RefreshToken, cookieOptions);
+            }
+        }
+        
         var token = _jwtProvider.GenerateToken(user);
-        _httpContextAccessor.HttpContext?.Response.Cookies.Append("JWT",token,cookieOptions);
+        
+        var outputRequest = new OutputLoginRequest(user.Id, user.UserName, user.Email, token);
+        
         return outputRequest;
     }
 }

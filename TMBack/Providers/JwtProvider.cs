@@ -36,11 +36,21 @@ public class JwtProvider(IOptions<JwtOptions> options) : IJwtProvider
 
     public string GenerateRefreshToken(UserEntity user)
     {
-        var randomNumber = new byte[32];
-        using (var rng = RandomNumberGenerator.Create())
-        {
-            rng.GetBytes(randomNumber);
-        }
-        return Convert.ToBase64String(randomNumber);
+        Claim[] claims = [new("userId", user.Id.ToString())];
+
+        var signingCredentials = new SigningCredentials(
+            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey)),
+            SecurityAlgorithms.HmacSha256
+        );
+
+        var token = new JwtSecurityToken(
+            claims: claims,
+            signingCredentials: signingCredentials,
+            expires: DateTime.UtcNow.AddDays(_options.ExpiresIn)
+        );
+
+        var tokenValue = new JwtSecurityTokenHandler().WriteToken(token);
+
+        return tokenValue;
     }
 }
