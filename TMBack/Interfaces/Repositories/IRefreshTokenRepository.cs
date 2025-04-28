@@ -7,4 +7,6 @@ public interface IRefreshTokenRepository
     public Task<bool> RefreshTokenExists(Guid userId);
     
     public Task<RefreshTokenEntity?> GetRefreshToken(Guid userId);
+
+    public Task<bool> RefreshTokenExists(string token);
 }

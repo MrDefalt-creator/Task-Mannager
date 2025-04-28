@@ -15,9 +15,19 @@ namespace TMBack.Infrastructure
         
         public Guid GetUserFromClaimsFromCookie()
         {
-            var userIdClaim = _httpContextAccessor.HttpContext?.User.FindFirst("userId")?.Value;
+            var refreshToken = _httpContextAccessor.HttpContext?.Request.Cookies["refreshToken"];
 
-            if (!Guid.TryParse(userIdClaim, out var userId))
+            if (string.IsNullOrEmpty(refreshToken))
+            {
+                throw new Exception("Refresh token cookie not found.");
+            }
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.ReadJwtToken(refreshToken);
+
+            var userIdClaim = token.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
+
+            if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out var userId))
             {
                 throw new Exception("Invalid or missing user ID in JWT.");
             }

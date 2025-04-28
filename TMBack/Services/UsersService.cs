@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
 using Microsoft.EntityFrameworkCore;
 using TMBack.Interfaces.Auth;
 using TMBack.Interfaces.Repositories;
@@ -21,14 +22,38 @@ public class UsersService
     private readonly IHttpContextAccessor _httpContextAccessor;
     
     private readonly IRefreshTokenRepository _refreshTokenRepository;
-    public UsersService(IHttpContextAccessor httpContextAccessor,IUserRepository userRepository,IJwtProvider jwtProvider,TaskManagerDbContext dbContext,IPasswordHasher passwordHasher, IRefreshTokenRepository refreshTokenRepository)
+    
+    private readonly IUserFromClaims _userFromClaims;
+    public UsersService(IHttpContextAccessor httpContextAccessor,IUserRepository userRepository,IJwtProvider jwtProvider,TaskManagerDbContext dbContext,IPasswordHasher passwordHasher, IRefreshTokenRepository refreshTokenRepository, IUserFromClaims userFromClaims)
     {
         _passwordHasher = passwordHasher;
         _refreshTokenRepository = refreshTokenRepository;
+        _userFromClaims = userFromClaims;
         _dbContext = dbContext;
         _jwtProvider = jwtProvider;
         _userRepository = userRepository;
         _httpContextAccessor = httpContextAccessor;
+    }
+
+    public async Task<string> UpdateToken()
+    {
+        var userId = _userFromClaims.GetUserFromClaimsFromCookie();
+
+        if (userId == null)
+        {
+            throw new UnauthorizedAccessException("Не авторизован");
+        }
+            
+        var user =  await _userRepository.GetById(userId);
+
+        if (user == null)
+        {
+            throw new UnauthorizedAccessException("Не авторизован");
+        }
+
+        var newToken = _jwtProvider.GenerateToken(user);
+        
+        return newToken;
     }
     
     public async Task<OutputLoginRequest> Register(string userName, string email, string password)
@@ -102,6 +127,26 @@ public class UsersService
                 
                 await _dbContext.RefreshTokens.AddAsync(refreshToken);
                 await _dbContext.SaveChangesAsync();
+            }
+            else
+            {
+                var refreshToken = await _refreshTokenRepository.GetRefreshToken(user.Id);
+                
+                if (refreshToken == null)
+                {
+                    throw new UnauthorizedAccessException("Ошибка авторизации");
+                }
+                
+                var cookieOptions = new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = false,
+                    SameSite = SameSiteMode.None,
+                    Expires = DateTimeOffset.UtcNow.AddDays(30)
+                };
+                
+                _httpContextAccessor.HttpContext?.Response.Cookies.Append("refreshToken", refreshToken.RefreshToken, cookieOptions);
+                
             }
         }
         else

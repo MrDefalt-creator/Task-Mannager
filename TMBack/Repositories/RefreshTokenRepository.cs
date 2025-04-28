@@ -23,4 +23,9 @@ public class RefreshTokenRepository : IRefreshTokenRepository
     {
         return await _dbContext.RefreshTokens.FirstOrDefaultAsync(x => x.UserId == userId && x.IsRevoked == false);
     }
+
+    public async Task<bool> RefreshTokenExists(string token)
+    {
+        return _dbContext.RefreshTokens.Any(x => x.RefreshToken == token && x.IsRevoked == false);
+    }
 }

@@ -12,8 +12,8 @@ public static class UsersEndpoints
         app.MapPost("register", Register);
         
         app.MapPost("login", Login);
-        
-        app.MapGet("check-validation", Check_Validation).RequireAuthorization();
+
+        app.MapGet("update_jwt", UpdateJwt);
         
         return app;
     }
@@ -25,16 +25,18 @@ public static class UsersEndpoints
         return Results.Ok(outRegisterRequest);
     }
 
-    private static async Task<IResult> Login([FromBody]LoginUserRequest request, UsersService usersService, HttpContext context)
+    private static async Task<IResult> Login([FromBody]LoginUserRequest request, UsersService usersService)
     {
         var outputLoginRequest = await usersService.Login(request.Email, request.Password, request.RememberMe);
         
         return Results.Ok(outputLoginRequest);
     }
 
-    private static async Task<IResult> Check_Validation()
+    private static async Task<IResult> UpdateJwt(UsersService service)
     {
-        return Results.Ok(new {message = "Validation Passed"});
+        var newToken = await service.UpdateToken();
+        
+        return Results.Ok(newToken);
     }
     
     
