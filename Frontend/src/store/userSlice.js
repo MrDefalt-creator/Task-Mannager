@@ -28,9 +28,9 @@ export const registerUser = createAsyncThunk(
         }
     }
 );
-
 const initialState = {
     userId: null,
+    accessToken: null,
     user: null,
     email: null,
     loading: false,
@@ -41,6 +41,7 @@ if (savedUser) {
     initialState.userId = savedUser.userId;
     initialState.user = savedUser.username;
     initialState.email = savedUser.email;
+    initialState.accessToken = savedUser.accessToken;
 
 }
 const userSlice = createSlice({
@@ -65,6 +66,8 @@ const userSlice = createSlice({
                 state.userId = action.payload.userId;
                 state.user = action.payload.username;
                 state.email = action.payload.email;
+                localStorage.setItem("accessToken", action.payload.accessToken);
+                localStorage.removeItem("user");
             })
             .addCase(loginUser.rejected, (state, action) => {
                 state.loading = false;
@@ -79,6 +82,7 @@ const userSlice = createSlice({
                 state.userId = action.payload.userId;
                 state.user = action.payload.username;
                 state.email = action.payload.email;
+                localStorage.setItem("accessToken", action.payload.accessToken);
                 localStorage.removeItem("user");
             })
             .addCase(registerUser.rejected, (state, action) => {

@@ -66,7 +66,7 @@ namespace TMBack
 
             });
             services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
-            services.AddScoped<IJwtProvider, JwtProvider>();
+            services.AddTransient<IJwtProvider, JwtProvider>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ITaskRepository, TaskRepository>();

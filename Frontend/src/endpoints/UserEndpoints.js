@@ -9,4 +9,8 @@ export default class UserEndpoints {
     static async login(email, password, rememberMe) {
         return await $api.post("/login", {email, password, rememberMe});
     }
+
+    static async updateJwt(){
+        return await $api.post("/update_jwt", {})
+    }
 }

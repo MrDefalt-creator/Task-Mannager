@@ -39,9 +39,9 @@ namespace TMBack.Infrastructure
         {
             var claim = _httpContextAccessor.HttpContext?.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
             
-            var userIdvValue = new JwtSecurityTokenHandler().ReadJwtToken(claim).Claims.FirstOrDefault(x => x.Value == "userId")?.Value;
+            var userIdValue = new JwtSecurityTokenHandler().ReadJwtToken(claim).Claims.FirstOrDefault(x => x.Type == "userId")?.Value;
 
-            if (!Guid.TryParse(userIdvValue, out var userId))
+            if (!Guid.TryParse(userIdValue, out var userId))
             {
                 throw new Exception("Invalid or missing user ID in JWT.");
             }

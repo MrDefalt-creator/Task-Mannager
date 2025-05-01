@@ -13,7 +13,7 @@ public static class UsersEndpoints
         
         app.MapPost("login", Login);
 
-        app.MapGet("update_jwt", UpdateJwt);
+        app.MapPost("update_jwt", UpdateJwt);
         
         return app;
     }
@@ -36,7 +36,7 @@ public static class UsersEndpoints
     {
         var newToken = await service.UpdateToken();
         
-        return Results.Ok(newToken);
+        return Results.Ok(new {accessToken = newToken});
     }
     
     
