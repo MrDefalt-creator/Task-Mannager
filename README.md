@@ -11,10 +11,6 @@ A simple and scalable Task Manager application built with React, Redux, and a C#
 - **🐘 PostgreSQL Database** - Scalable and reliable storage for user and task data.
 - **🎨 Modern Styling** - Clean and responsive UI powered by Tailwind CSS.
 
-### 🔮 Сan be implemented:
-- 🔄 Implement refresh tokens for enhanced security.
-- ⚙️ Advanced database management using Entity Framework.
-
 ## 🛠️ Technologies Used
 
 ### Frontend:
