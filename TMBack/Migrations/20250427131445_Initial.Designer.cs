@@ -12,7 +12,7 @@ using TMBack;
 namespace TMBack.Migrations
 {
     [DbContext(typeof(TaskManagerDbContext))]
-    [Migration("20250427130748_Initial")]
+    [Migration("20250427131445_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -30,6 +30,9 @@ namespace TMBack.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
+
+                    b.Property<bool>("IsRevoked")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("RefreshToken")
                         .IsRequired()

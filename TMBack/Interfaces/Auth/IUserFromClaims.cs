@@ -2,6 +2,8 @@
 {
     public interface IUserFromClaims
     {
-         Guid GetUserFromClaims();
+         Guid GetUserFromClaimsFromCookie();
+         
+         Guid GetUserFromClaimsFromHeader();
     }
 }

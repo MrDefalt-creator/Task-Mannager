@@ -37,7 +37,7 @@ public static class ApiExtensions
                 {
                     OnMessageReceived = context =>
                     {
-                        context.Token = context.Request.Cookies["JWT"];
+                        context.Token = context.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
                         
                         return Task.CompletedTask;
                     }
