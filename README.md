@@ -28,6 +28,21 @@ A simple and scalable Task Manager application built with React, Redux, and a C#
 - 🐘 PostgreSQL
 - 🔐 Cookie-based authentication
 
+---
+
+### 📦 Development Notes
+
+> ⚠️ **Important for local development:**
+>
+> - This application was **tested primarily on Mozilla Firefox**, due to Google Chrome's restrictions on cookie behavior over `http://localhost`. Firefox allows more permissive handling of cookies in non-secure (HTTP) local environments, making development and debugging smoother.
+> - When preparing for **production deployment**, make sure to:
+>   - Serve the application over **HTTPS**.
+>   - Adjust **cookie settings on the backend**:
+>     - Set the `Secure` flag to `true` so cookies are only transmitted over HTTPS.
+>     - Use appropriate `SameSite` policies (e.g., `Lax` or `Strict` for most cases, `None` with `Secure` for cross-site).
+>   - Consider implementing **refresh tokens** for improved authentication security and session management.
+
+
 ## 🚀 Getting Started
 
 ### ✅ Prerequisites
