@@ -1,5 +1,4 @@
 ﻿import axios from "axios";
-
 const API_URL = "https://localhost:7000";
 const $api = axios.create({
     baseURL: API_URL,
@@ -24,7 +23,8 @@ $api.interceptors.response.use(
                 originalRequest.headers.Authorization = "Bearer " + response.data.accessToken;
                 return $api(originalRequest);
             } catch (refreshError) {
-                console.error("Token refresh failed:", refreshError);
+                localStorage.clear();
+                window.location.href = "/login";
                 return Promise.reject(refreshError);
             }
         }
