@@ -22,8 +22,7 @@ A simple and scalable Task Manager application built with React, Redux, and a C#
 ### Backend:
 - 🏗️ C#, ASP.NET Core
 - 🐘 PostgreSQL
-- 🔐 Cookie-based authentication
-
+- 🔐 Access/Refresh Token Authorization
 ---
 
 ### 📦 Development Notes
